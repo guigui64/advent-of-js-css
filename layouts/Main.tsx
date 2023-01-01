@@ -5,16 +5,18 @@ import Header from "../components/Header.tsx";
 
 type MainProps = {
   title: string;
+  headChildren?: ComponentChildren;
   headerActive?: string;
   children?: ComponentChildren;
 };
 
 export default function Main(props: MainProps) {
-  const { title, headerActive, children } = props;
+  const { title, headChildren, headerActive, children } = props;
   return (
     <body class="dark:bg-gray-900 dark:text-white">
       <Head>
         <title>{title}</title>
+        {headChildren}
       </Head>
       <Header active={headerActive} />
       <div class="p-4 mx-auto max-w-screen-md">{children}</div>
